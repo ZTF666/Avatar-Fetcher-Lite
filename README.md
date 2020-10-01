@@ -1,12 +1,10 @@
-# Avatar-Lite
-
 # Avatar Lite | アバター
 
 Is a webapp that fetches and displays a given Instagram's user profile picture .
 
 This app ustilizes the
 
-**/?\_\_a=1**
+**/?\_\_a=1** trick
 
 to get a json format of an IG profile .
 
@@ -34,7 +32,7 @@ This was made using :
               height="40"
               title="Vuetify"
             />
-<h1>A<strong>X</strong>IOS</h1>
+<h1>AXIOS</h1>
 
 </div>
 
