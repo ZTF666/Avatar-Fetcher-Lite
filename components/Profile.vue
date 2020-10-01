@@ -22,9 +22,6 @@
               </div>
             </v-row>
           </v-flex>
-          <!-- radio -->
-
-          <!-- end radio -->
         </v-layout>
       </v-container>
     </v-form>
@@ -32,34 +29,63 @@
     <v-layout class="d-flex justify-center">
       <v-flex class="d-flex justify-center">
         <v-card>
-          <v-img
-            class="white--text"
-            height="390px"
-            width="390px"
-            :src="Picture_HD"
-          ></v-img>
-          <!--  -->
-          <v-card-text class="align-center justify-center">
-            {{ Username }}
-            <br />
-            {{ Fullname }}
-            <br />
-            {{ Biography }}
-            <br />
-            {{ Follows }}
-            <br />
-            {{ FollowedBy }}
-          </v-card-text>
-          <!--  -->
+          <center>
+            <v-img
+              class="white--text"
+              height="360px"
+              width="360px"
+              :src="Picture_HD"
+            ></v-img>
+          </center>
+          <!-- Details -->
+          <v-card-actions>
+            <v-btn color="white lighten-2" text> Details </v-btn>
+
+            <v-spacer></v-spacer>
+
+            <v-btn icon @click="show = !show">
+              <v-icon>{{
+                show ? 'mdi-chevron-up' : 'mdi-chevron-down'
+              }}</v-icon>
+            </v-btn>
+          </v-card-actions>
+
+          <v-expand-transition>
+            <div v-show="show">
+              <v-divider></v-divider>
+
+              <v-card-text>
+                <center>
+                  <span>User Name : {{ Username }}</span> <br />
+                  <span v-if="Fullname"> Full Name : {{ Fullname }}</span>
+                  <span v-else></span> <br />
+                  <span v-if="Biography">Bio : {{ Biography }}</span>
+                  <span v-else></span> <br />
+                  <span>Follows : {{ Follows }}</span> <br />
+                  <span>Followers : {{ FollowedBy }}</span>
+                </center>
+              </v-card-text>
+            </div>
+          </v-expand-transition>
+
+          <!-- End Details -->
         </v-card>
       </v-flex>
+    </v-layout>
+    <v-layout class="d-flex justify-center mt-10">
+      <div class="text-xs-center">
+        <v-btn round color="dark" dark>
+          <a :href="Picture_HD" target="_">
+            <v-icon color="white">mdi-content-save</v-icon>
+          </a>
+        </v-btn>
+      </div>
     </v-layout>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-// var request = new XMLHttpRequest()
 export default {
   data() {
     return {
@@ -72,6 +98,7 @@ export default {
       FollowedBy: '',
       Url: 'https://www.instagram.com/',
       UrlEnd: '/?__a=1',
+      show: false,
     }
   },
   methods: {
@@ -91,26 +118,8 @@ export default {
             FormattedData.data.graphql.user.edge_followed_by.count
         }
       } catch (e) {
-        // this.lyrics =
-        //   'The song / artist does not exist or there is a typo somewhere ! please check'
+        console.log(e)
       }
-      //    if (this.username != null && this.row != null) {
-      //     // Instagram
-      //     if (this.row == "ig") {
-      //       let apiUrl = "https://unavatar.now.sh/instagram/";
-      //       apiUrl = apiUrl + this.username + "?json";
-      //       await fetch(apiUrl).then(
-      //         (response) => (this.status = response.status)
-      //       );
-      //       console.log(this.status);
-      //       if (this.status == 200) {
-      //         this.avatar = "https://unavatar.now.sh/instagram/" + this.username;
-      //         this.downloadlink =
-      //           "https://unavatar.now.sh/instagram/" + this.username;
-      //         this.myurl = "https://unavatar.now.sh/instagram/" + this.username;
-      //         this.username = null;
-      //       }
-      //     }
     },
   },
 }
