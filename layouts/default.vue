@@ -2,7 +2,7 @@
   <v-app dark>
     <v-app-bar :clipped-left="clipped" fixed app>
       <v-img
-        alt="Vuetify Logo"
+        alt="Logo"
         class="shrink mr-2"
         contain
         :src="logo"

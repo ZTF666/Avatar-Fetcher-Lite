@@ -118,7 +118,7 @@ export default {
             FormattedData.data.graphql.user.edge_followed_by.count
         }
       } catch (e) {
-        console.log(e)
+        alert("This user doesn't exist, please check the spelling")
       }
     },
   },
