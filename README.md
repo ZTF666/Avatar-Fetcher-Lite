@@ -19,7 +19,7 @@ This was made using :
               title="Nuxtjs"
             />
             <img
-              src="https://devicons.github.io/devicon/devicon.git/icons/vuejs/vuejs-original-wordmark.svg"
+              src="https://www.vectorlogo.zone/logos/vuejs/vuejs-icon.svg"
               alt="vuejs"
               width="40"
               height="40"
