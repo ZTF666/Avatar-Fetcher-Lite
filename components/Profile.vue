@@ -17,7 +17,7 @@
             <v-row class="d-flex justify-center">
               <div>
                 <v-col>
-                  <v-btn @click.prevent="FetchImage()">Get Image</v-btn>
+                  <v-btn @click.prevent="getImage()">Get Image</v-btn>
                 </v-col>
               </div>
             </v-row>
@@ -74,7 +74,7 @@
     </v-layout>
     <v-layout class="d-flex justify-center mt-10">
       <div class="text-xs-center">
-        <v-btn round color="dark" dark>
+        <v-btn rounded color="dark" dark>
           <a :href="Picture_HD" target="_">
             <v-icon color="white">mdi-content-save</v-icon>
           </a>
@@ -121,6 +121,7 @@ export default {
         alert("This user doesn't exist, please check the spelling")
       }
     },
+   
   },
 }
 </script>
